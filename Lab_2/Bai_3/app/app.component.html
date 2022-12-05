@@ -1,0 +1,19 @@
+<div class="container">
+  <p>Sever Name</p>
+  <input type="text" #name />
+  <p>Server Content</p>
+  <input type="text" #content />
+  <div class="row pt-4 pb-3">
+    <div class="col-2">
+      <button class="btn btn-dark" (click)="addServer(name.value, content.value)">
+        Add Server
+      </button>
+    </div>
+    <div class="col-2">
+      <button class="btn btn-primary" (click)="addServerBlue(name.value, content.value)">
+        Add ServerBlue
+      </button>
+    </div>
+  </div>
+  <app-child [servers]="servers"></app-child>
+</div>

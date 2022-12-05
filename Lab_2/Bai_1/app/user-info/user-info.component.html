@@ -1,0 +1,18 @@
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <label for="">Username</label>
+        <input type="text" [(ngModel)]="username" class="form-control" />
+      </div>
+      <p>{{ username }}</p>
+      <button
+        class="btn btn-primary"
+        (click)="onReset()"
+        [disabled]="username == ''"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+</div>
