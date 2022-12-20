@@ -1,0 +1,44 @@
+<div class="container mt-2">
+  <div class="col-6">
+    <table class="table table-hover table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Food Name</th>
+          <th scope="col">Image</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of foodArr; index as i">
+        <tr (click)="printFood(i)">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ item.name }}</td>
+          <td><img src="{{ item.image }}" alt="" /></td>
+          <td>{{ item.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div
+  class="col-6"
+  [ngClass]="ClickFood.name == undefined ? 'display-none' : 'display'"
+>
+  <div><h3>Thông tin chi tiết món ăn</h3></div>
+  <div class="card mb-3" style="max-width: 540px">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ ClickFood.image }}" class="img-fluid rounded-start" />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ ClickFood.name }}</h5>
+          <p class="card-text">{{ ClickFood.description }}</p>
+          <p class="card-text">
+            <small class="text-muted">ID Of this</small>{{ ClickFood.id }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Bánh xèo",
+    "image": "assets/banhxeo.png",
+    "price": "20000",
+    "description": "Bánh xèo miền trung thơm ngon",
+    "id": "1"
+  },
+  {
+    "name": "Bánh bột lọc",
+    "image": "assets/banhxeo.png",
+    "price": "20000",
+    "description": "Bánh bột lọc miền trung thơm ngon",
+    "id": "2"
+  },
+  {
+    "name": "Bánh đúc",
+    "image": "assets/banhxeo.png",
+    "price": "20000",
+    "description": "Bánh đúc miền trung thơm ngon",
+    "id": "3"
+  },
+  {
+    "name": "Bánh tráng",
+    "image": "assets/banhxeo.png",
+    "price": "20000",
+    "description": "Bánh xèo miền trung thơm ngon",
+    "id": "4"
+  },
+  {
+    "name": "Bánh mì",
+    "image": "assets/banhxeo.png",
+    "price": "20000",
+    "description": "Bánh mì miền trung thơm ngon",
+    "id": "5"
+  }
+]
