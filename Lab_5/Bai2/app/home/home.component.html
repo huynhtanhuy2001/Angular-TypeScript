@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-12" *ngFor="let item of myAllPosts">
+    <a
+      class="text-decoration-none"
+      [routerLink]="['/blog-detail']"
+      [queryParams]="{
+        title: item.title,
+        des: item.description,
+        content: item.content
+      }"
+    >
+      <h2>{{ item.title }}</h2>
+    </a>
+    <p>{{ item.description }}</p>
+    <!-- <p>{{ item.content }}</p> -->
+  </div>
+</div>
