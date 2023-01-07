@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row" *ngIf="showDetails">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Employee Code</th>
+            <th>Employee Name</th>
+            <th>Date of Birth</th>
+            <th>Date of Join</th>
+            <th>Dapartment</th>
+            <th>Desgination</th>
+            <th>Salary</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ep of employees; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ ep.code }}</td>
+            <td>{{ ep.name }}</td>
+            <td>{{ ep.date }}</td>
+            <td>{{ ep.join }}</td>
+            <td>{{ ep.department }}</td>
+            <td>{{ ep.designation }}</td>
+            <td>{{ ep.salary }}</td>
+            <td><button class="btn btn-success">Edit</button></td>
+            <td>
+              <button class="btn btn-danger" (click)="onDelete(ep.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-primary" type="button" (click)="addEmployee()">
+        Add Employee
+      </button>
+    </div>
+  </div>
+  <ng-container *ngIf="showEmployee">
+    <app-add-employee (onHide)="onHide($event)"></app-add-employee>
+  </ng-container>
+  <ng-container *ngIf="editEmployee">
+    <app-add-employee
+      (onSubmit)="onSubmit()"
+      (onHide)="onHide($event)"
+    ></app-add-employee>
+  </ng-container>
+</div>

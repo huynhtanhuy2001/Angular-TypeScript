@@ -1,0 +1,40 @@
+<div class="container custom-container">
+  <div class="col-md-6">
+    <h3>Create User</h3>
+    <div class="form-group">
+      <input
+        type="text"
+        [(ngModel)]="UserDetails.name"
+        class="form-control"
+        placeholder="Name"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <input
+        type="text"
+        [(ngModel)]="UserDetails.email"
+        class="form-control"
+        placeholder="Email"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <input
+        type="text"
+        [(ngModel)]="UserDetails.phone"
+        class="form-control"
+        placeholder="Phone"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <button
+        class="btn btn-success btn-lg btn-block"
+        (click)="addUser(UserDetails)"
+      >
+        Add User
+      </button>
+    </div>
+  </div>
+</div>
