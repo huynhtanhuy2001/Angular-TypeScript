@@ -1,0 +1,154 @@
+<div class="row">
+  <div class="col-6">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Register Form</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSave()">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              [(ngModel)]="_model.userName"
+              type="text"
+              class="form-control"
+              formControlName="userName"
+              placeholder="Username"
+            />
+          </div>
+          <div
+            *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)"
+            class="alert alert-danger"
+          >
+            <div *ngIf="userName?.errors?.['required']">
+              Vui lòng nhập username
+            </div>
+            <div *ngIf="userName?.errors?.['minlength']">
+              username tối thiểu 6 ký tự
+            </div>
+            <div *ngIf="userName?.errors?.['maxlength']">
+              username tối đa 20 ký tự
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Last Name</label>
+            <input
+              [(ngModel)]="_model.lastName"
+              type="text"
+              formControlName="lastName"
+              placeholder="Last Name"
+              class="form-control"
+            />
+          </div>
+          <div
+            *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)"
+            class="alert alert-danger"
+          >
+            <div *ngIf="registerForm.controls['lastName'].hasError('required')">
+              Vui lòng nhập lastName
+            </div>
+            <div
+              *ngIf="registerForm.controls['lastName'].hasError('minlength')"
+            >
+              Lastname tối thiểu 6 ký tự
+            </div>
+            <div
+              *ngIf="registerForm.controls['firstName'].hasError('maxlength')"
+            >
+              Lastname tối đa 20 ký tự
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Fist Name</label>
+            <input
+              [(ngModel)]="_model.firstName"
+              type="text"
+              formControlName="firstName"
+              placeholder="First Name"
+              class="form-control"
+            />
+          </div>
+          <div
+            *ngIf="
+              firstName?.invalid && (firstName?.dirty || firstName?.touched)
+            "
+            class="alert alert-danger"
+          >
+            <div
+              *ngIf="registerForm.controls['firstName'].hasError('required')"
+            >
+              Vui lòng nhập firstName
+            </div>
+            <div
+              *ngIf="registerForm.controls['firstName'].hasError('minlength')"
+            >
+              Lastname tối thiểu 6 ký tự
+            </div>
+            <div
+              *ngIf="registerForm.controls['firstName'].hasError('maxlength')"
+            >
+              Lastname tối đa 20 ký tự
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Password</label>
+            <input
+              [(ngModel)]="_model.passWord"
+              type="password"
+              formControlName="passWord"
+              placeholder="Password"
+              class="form-control"
+            />
+          </div>
+          <div
+            *ngIf="passWord?.invalid && (passWord?.dirty || passWord?.touched)"
+            class="alert alert-danger"
+          >
+            <div *ngIf="registerForm.controls['passWord'].hasError('required')">
+              Vui lòng nhập PassWord
+            </div>
+            <div
+              *ngIf="registerForm.controls['passWord'].hasError('minlength')"
+            >
+              PassWord tối thiểu 6 ký tự
+            </div>
+            <div
+              *ngIf="registerForm.controls['passWord'].hasError('maxlength')"
+            >
+              PassWord tối đa 20 ký tự
+            </div>
+          </div>
+          <button
+            class="btn btn-primary mt-3"
+            [disabled]="registerForm.invalid"
+            type="submit"
+            (click)="onSubmit()"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <h2 class="text-primary">User detail</h2>
+    <table class="table center">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>User Name</th>
+          <th>Last Name</th>
+          <th>First Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of _listUser; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.userName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.firstName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
