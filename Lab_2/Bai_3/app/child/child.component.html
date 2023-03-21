@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <table border="1">
+      <thead>
+        <tr align="center">
+          <th>Name</th>
+          <th>Server</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let server of server" align="center">
+          <td>{{server.name}}</td>
+          <td>{{server.content}}</td>
+          <td>{{server.type}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
