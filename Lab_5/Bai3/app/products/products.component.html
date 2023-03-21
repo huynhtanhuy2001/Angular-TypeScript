@@ -1,0 +1,41 @@
+<!-- Hiển thị bảng sản phẩm -->
+<h1 class="mt-3">Danh sách sản phẩm</h1>
+<table class="table table-success table-striped table-hover mt-3">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">description</th>
+      <th scope="col">category</th>
+      <th scope="col">order</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of productList">
+      <th
+        scope="row"
+        [routerLink]="['/detail', product.id]"
+        [queryParams]="{ id: product.id, name: product.name }"
+      >
+        {{ product.id }}
+      </th>
+      <td [routerLink]="['/products/detail', product.id]">
+        {{ product.name }}
+      </td>
+      <td [routerLink]="['/products/detail', product.id]">
+        {{ product.description }}
+      </td>
+      <td [routerLink]="['/products/detail', product.id]">
+        {{ product.category }}
+      </td>
+      <td [routerLink]="['/products/detail', product.id]">
+        {{ product.order }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- button tạo mới sản phẩm -->
+<button [routerLink]="['new']" class="btn btn-success">
+  Thêm sản phẩm mới
+</button>
+<router-outlet></router-outlet>
