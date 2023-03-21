@@ -1,0 +1,46 @@
+<div class="container pt-4">
+  <div class="row">
+    <label>Sever Name</label>
+    <input style="width: 500px" type="text" #name />
+  </div>
+  <div class="row">
+    <label>Sever Content</label>
+    <input style="width: 500px" type="text" #content />
+  </div>
+  <div class="row">
+    <div class="py-3 col-5">
+      <button class="mx-2" (click)="addServer(name.value, content.value)">
+        Add Server
+      </button>
+      <button (click)="addServerBlue(name.value, content.value)">
+        Add ServerBlue
+      </button>
+    </div>
+  </div>
+
+  <div class="bg-light">
+    <label>Test Sever</label>
+    <ul *ngFor="let s of severBlue">
+      <option>{{ s.name }} |{{ s.content }} |{{ s.type }}</option>
+    </ul>
+  </div>
+
+  <div class="row">
+    <table border="1">
+      <tr align="center">
+        <th>Name</th>
+        <th>Server Content</th>
+        <th>Sever Name</th>
+      </tr>
+      <tr
+        *ngFor="let s of severs"
+        align="center"
+        [ngStyle]="{ color: s.type == 'Sever' ? 'red':'blue' }"
+      >
+        <td>{{ s.name }}</td>
+        <td>{{ s.content }}</td>
+        <td>{{ s.type }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
