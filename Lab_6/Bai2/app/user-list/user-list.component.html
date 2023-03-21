@@ -1,0 +1,34 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of Users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>
+        <a class="btn btn-primary" routerLink="/user-edit/{{ user.id }}">Edit</a
+        >&nbsp;&nbsp;
+        <button class="btn btn-success" (click)="remove(user.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+  <button
+    class="btn mt-2 btn-success btn-lg btn-block"
+    [routerLink]="['/create-user']"
+  >
+    Add User
+  </button>
+</table>
+<router-outlet></router-outlet>
