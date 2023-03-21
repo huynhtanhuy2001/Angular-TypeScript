@@ -1,0 +1,258 @@
+<div class="row container mt-4">
+  <div class="col">
+    <form [formGroup]="rectiveForm" (ngSubmit)="onSave()">
+      <div class="row">
+        <div class="col">
+          <!-- First Name -->
+          <div class="form-group">
+            <label for="">Fist Name</label>
+            <input
+              type="text"
+              formControlName="firstName"
+              placeholder="First Name"
+              class="form-control"
+            />
+          </div>
+          <!-- Validate First Name -->
+          <div
+            style="color: green"
+            *ngIf="(firstName?.valid && firstName?.dirty) || firstName?.touched"
+          >
+            Looks good!
+          </div>
+          <div
+            *ngIf="
+              firstName?.invalid && (firstName?.dirty || firstName?.touched)
+            "
+            class="alert alert-danger"
+          >
+            <div *ngIf="rectiveForm.controls['firstName'].hasError('required')">
+              Vui lòng nhập firstName
+            </div>
+            <div
+              *ngIf="rectiveForm.controls['firstName'].hasError('minlength')"
+            >
+              Lastname tối thiểu 6 ký tự
+            </div>
+            <div
+              *ngIf="rectiveForm.controls['firstName'].hasError('maxlength')"
+            >
+              Lastname tối đa 20 ký tự
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- Last Name -->
+          <div class="form-group">
+            <label for="">Last Name</label>
+            <input
+              type="text"
+              formControlName="lastName"
+              placeholder="Last Name"
+              class="form-control"
+            />
+          </div>
+
+          <!-- Validate Last Name -->
+          <div
+            style="color: green"
+            *ngIf="(lastName?.valid && lastName?.dirty) || lastName?.touched"
+          >
+            Looks good!
+          </div>
+          <div
+            *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)"
+            class="alert alert-danger"
+          >
+            <div *ngIf="rectiveForm.controls['lastName'].hasError('required')">
+              Vui lòng nhập lastName
+            </div>
+            <div *ngIf="rectiveForm.controls['lastName'].hasError('minlength')">
+              Lastname tối thiểu 6 ký tự
+            </div>
+            <div
+              *ngIf="rectiveForm.controls['firstName'].hasError('maxlength')"
+            >
+              Lastname tối đa 20 ký tự
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <!-- User Name -->
+          <div class="form-group">
+            <label for="username">Username</label><br />
+            <button class="row">
+              <i class="col-1 fa fa-at p-0 mt-2 rounded" aria-hidden="true"></i>
+              <input
+                type="email"
+                class="col form-control"
+                formControlName="userName"
+                placeholder="Username"
+                ngModel
+                email="true"
+              />
+            </button>
+          </div>
+          <!-- Validate User Name -->
+          <div
+            style="color: green"
+            *ngIf="(userName?.valid && userName?.dirty) || userName?.touched"
+          >
+            Looks good!
+          </div>
+          <div
+            *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)"
+            class="alert alert-danger"
+          >
+            <div *ngIf="userName?.errors?.['required']">
+              Vui lòng nhập username
+            </div>
+            <div *ngIf="userName?.errors?.['email']">
+              Vui lòng nhập user name + @ + username
+            </div>
+            <div *ngIf="userName?.errors?.['minlength']">
+              username tối thiểu 6 ký tự
+            </div>
+            <div *ngIf="userName?.errors?.['maxlength']">
+              username tối đa 20 ký tự
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <!--  City -->
+          <div class="form-group">
+            <label for="">City</label>
+            <input
+              type="text"
+              formControlName="City"
+              placeholder="City"
+              class="form-control"
+            />
+          </div>
+          <!-- Validate City -->
+          <div
+            style="color: green"
+            *ngIf="(City?.valid && City?.dirty) || City?.touched"
+          >
+            Looks good!
+          </div>
+          <div
+            *ngIf="City?.invalid && (City?.dirty || City?.touched)"
+            class="alert alert-danger"
+          >
+            <div *ngIf="rectiveForm.controls['City'].hasError('required')">
+              Vui lòng nhập firstName
+            </div>
+            <div *ngIf="rectiveForm.controls['City'].hasError('minlength')">
+              Lastname tối thiểu 6 ký tự
+            </div>
+            <div *ngIf="rectiveForm.controls['City'].hasError('maxlength')">
+              Lastname tối đa 20 ký tự
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="col">
+            <!-- State -->
+            <div class="form-group">
+              <label for="State">State</label><br />
+              <input
+                type="text"
+                class="col form-control"
+                formControlName="State"
+                placeholder="State"
+              />
+            </div>
+            <!-- Validate State -->
+            <div
+              style="color: green"
+              *ngIf="(State?.valid && State?.dirty) || State?.touched"
+            >
+              Looks good!
+            </div>
+            <div
+              *ngIf="State?.invalid && (State?.dirty || State?.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="State?.errors?.['required']">
+                Vui lòng nhập username
+              </div>
+              <div *ngIf="State?.errors?.['minlength']">
+                username tối thiểu 6 ký tự
+              </div>
+              <div *ngIf="State?.errors?.['maxlength']">
+                username tối đa 20 ký tự
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="col">
+            <!-- Zip -->
+            <div class="form-group">
+              <label for="Zip">Zip</label><br />
+              <input
+                type="text"
+                class="col form-control"
+                formControlName="Zip"
+                placeholder="Zip"
+              />
+            </div>
+            <!-- Validate Zip -->
+            <div
+              style="color: green"
+              *ngIf="(Zip?.valid && Zip?.dirty) || Zip?.touched"
+            >
+              Looks good!
+            </div>
+            <div
+              *ngIf="Zip?.invalid && (Zip?.dirty || Zip?.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="Zip?.errors?.['required']">
+                Vui lòng nhập username
+              </div>
+              <div *ngIf="Zip?.errors?.['minlength']">
+                username tối thiểu 6 ký tự
+              </div>
+              <div *ngIf="Zip?.errors?.['maxlength']">
+                username tối đa 20 ký tự
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <input ngModel required formControlName="checkbox" type="checkbox" />
+        Agree to terms and conditions
+        <!-- Validate Zip -->
+        <div
+          style="color: green"
+          *ngIf="(checkbox?.valid && checkbox?.dirty) || checkbox?.touched"
+        >
+          Looks good!
+        </div>
+        <div
+          *ngIf="checkbox?.invalid && (checkbox?.dirty || checkbox?.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="checkbox?.errors?.['required']">
+            You must agree before submiting
+          </div>
+        </div>
+      </div>
+      <button
+        class="btn btn-primary mt-3"
+        [disabled]="rectiveForm.invalid"
+        type="submit"
+        (click)="onSave()"
+      >
+        Register
+      </button>
+    </form>
+  </div>
+</div>
